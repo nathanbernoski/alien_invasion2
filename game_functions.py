@@ -3,7 +3,7 @@ import sys
 from bullets import Bullets
 from alien import Alien
 
-
+#something
 def check_events(ship, settings, screen, bullets):
     # checks for key/mouse events and responds
     for event in pygame.event.get():

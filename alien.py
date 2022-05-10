@@ -1,8 +1,9 @@
 import pygame
 from pygame.sprite import Sprite
 
+
 class Alien(Sprite):
-    #Class to represent a single alien in an alien fleet
+    # Class to represent a single alien in an alien fleet
 
     def __init__(self, settings, screen):
 
@@ -24,6 +25,7 @@ class Alien(Sprite):
         self.rect.y = self.rect.height
 
         self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
 
         self.speed = 1
         self.direction = 1
@@ -32,21 +34,22 @@ class Alien(Sprite):
         self.available_space_x = self.settings.screen_width - (2 * self.rect.width)
         self.number_of_aliens = int(self.available_space_x / (2 * self.rect.width))
 
-    def blitme(self):
+    def blit(self):
         # draws alien on the screen
         self.screen.blit(self.image, self.rect)
 
     def update(self):
         # moves_alien
-        if self.check_screen() == True:
+        if self.check_screen():
             self.direction *= -1
+            self.rect.y += (2 * self.rect.height)
         self.x += self.speed * self.direction
         self.rect.x = self.x
 
     def check_screen(self):
-        #return true if an alien is at the edge of the screen
+        # return true if an alien is at the edge of the screen
         screen_rect = self.screen.get_rect()
-        if self.rect.right >= screen_rect.right:
+        if self.rect.right >= 910:
             return True
-        elif self.rect.left <= 0:
+        elif self.rect.left <= -10:
             return True

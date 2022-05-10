@@ -1,7 +1,7 @@
 import pygame
 
 
-class Ship():
+class Ship:
 
     def __init__(self, screen):
 
@@ -30,7 +30,7 @@ class Ship():
         self.moving_up = False
         self.moving_down = False
 
-    def blitme(self):
+    def blit(self):
         # draw the ship on the screen
         self.screen.blit(self.image, self.rect)
 
